@@ -14,6 +14,7 @@ Please be very careful.
 #include <vector>
 #include <stdio.h>
 #include <algorithm>
+#include <math.h>
 using namespace std;
 
 int Answer;
@@ -21,8 +22,9 @@ int Answer;
 int main(int argc, char** argv)
 {
 	int T, test_case;
-	unsigned int num;
-	unsigned int study;
+	int num;
+	//unsigned int study;
+	int A,B,C,D,E;
 	/*
 	The freopen function below opens input.txt file in read only mode, and afterward,
 	the program will read from input.txt file instead of standard(keyboard) input.
@@ -38,21 +40,31 @@ int main(int argc, char** argv)
 	cin >> T;
 	for (test_case = 0; test_case < T; test_case++)
 	{
+		scanf("%d", &A);
+		scanf("%d", &B);
+		scanf("%d", &C);
+		scanf("%d", &D);
+		scanf("%d", &E);
 		scanf("%d", &num);
-		scanf("%d", &study);
-
 		//scanf("%d", &max);
-		vector<unsigned int> v(num);
+		//vector<unsigned int> v(num);
 		//v[0] = max;
-		for (unsigned int i = 0; i < num; i++)
-		{
-			scanf("%d", &v[i]);
-		}
-		sort(v.begin(), v.end());//낮은게 먼저있네 이게 내림차순인가
-
 		Answer = 0;
-		for (int i = 0; i < study; i++)
-			Answer += v[v.size() - i - 1];
+
+		for (int i = 0; i < num; i++)
+		{
+			int a, b;
+			scanf("%d %d", &a,&b);
+			int temp = pow(a, 2) + pow(b, 2);
+			if (pow(A, 2) > temp)
+			{
+				Answer+=
+			}
+		}
+		//sort(v.begin(), v.end());//낮은게 먼저있네 이게 내림차순인가
+
+		/*for (int i = 0; i < study; i++)
+			Answer += v[v.size() - i - 1];*/
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		/*
 		Implement your algorithm here.
@@ -67,4 +79,4 @@ int main(int argc, char** argv)
 
 	return 0;//Your program should return 0 on normal termination.
 }
-https://www.codeground.org/practice/practiceProblemView
+//https://www.codeground.org/practice/practiceProblemView
