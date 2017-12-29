@@ -1,4 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
+#define PI 3.14159265358979323846
 
 /*
 You should use the statndard input/output
@@ -18,13 +19,17 @@ Please be very careful.
 using namespace std;
 
 int Answer;
-
+int Score(const int& x, const int& y)
+{
+	int arr[20] = { 9,13,4,18,1,20,5,12,9,14,11,8,16,7,19,3,17,2,15,10 };//첫번째 값 6인지 9인지
+	return arr[((int)(atan2(y, x) * 180 / PI + 360 + 9) / 18) % 20];
+}
 int main(int argc, char** argv)
 {
 	int T, test_case;
 	int num;
 	//unsigned int study;
-	int A,B,C,D,E;
+	int A, B, C, D, E;
 	/*
 	The freopen function below opens input.txt file in read only mode, and afterward,
 	the program will read from input.txt file instead of standard(keyboard) input.
@@ -36,7 +41,7 @@ int main(int argc, char** argv)
 	*/
 
 	//freopen("input.txt", "r", stdin);
-	//setbuf(stdout, NULL);
+	setbuf(stdout, NULL);
 	cin >> T;
 	for (test_case = 0; test_case < T; test_case++)
 	{
@@ -46,25 +51,29 @@ int main(int argc, char** argv)
 		scanf("%d", &D);
 		scanf("%d", &E);
 		scanf("%d", &num);
-		//scanf("%d", &max);
-		//vector<unsigned int> v(num);
-		//v[0] = max;
 		Answer = 0;
 
 		for (int i = 0; i < num; i++)
 		{
 			int a, b;
-			scanf("%d %d", &a,&b);
-			int temp = pow(a, 2) + pow(b, 2);
-			if (pow(A, 2) > temp)
+			scanf("%d %d", &a, &b);
+			if (A*A >= a * a + b * b)//BULL
 			{
-				Answer+=
+				Answer += 50;
+			}
+			else if (B*B < a * a + b * b&&a * a + b * b < C*C)//TRIPLE
+			{
+				Answer += Score(a, b) * 3;
+			}
+			else if (D*D < a * a + b * b&&a * a + b * b < E*E)//DOUBLE
+			{
+				Answer += Score(a, b) * 2;
+			}
+			else if (a * a + b * b < D*D)//SINGLE
+			{
+				Answer += Score(a, b);
 			}
 		}
-		//sort(v.begin(), v.end());//낮은게 먼저있네 이게 내림차순인가
-
-		/*for (int i = 0; i < study; i++)
-			Answer += v[v.size() - i - 1];*/
 		/////////////////////////////////////////////////////////////////////////////////////////////
 		/*
 		Implement your algorithm here.
