@@ -21,7 +21,7 @@ using namespace std;
 int Answer;
 int Score(const int& x, const int& y)
 {
-	int arr[20] = { 9,13,4,18,1,20,5,12,9,14,11,8,16,7,19,3,17,2,15,10 };//첫번째 값 6인지 9인지
+	int arr[20] = { 9,13,4,18,1,20,5,12,9,14,11,8,16,7,19,3,17,2,15,10 };
 	return arr[((int)(atan2(y, x) * 180 / PI + 360 + 9) / 18) % 20];
 }
 int main(int argc, char** argv)
